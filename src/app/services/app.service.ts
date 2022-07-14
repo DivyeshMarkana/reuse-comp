@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
@@ -10,8 +11,10 @@ export class AppService {
   search = new BehaviorSubject('')
   // category = 'characters' || 'comics' || 'events'
   category: string
+  currentURL: any
 
-  constructor(private http: HttpClient) { }
+
+  constructor(private http: HttpClient, private router: Router) { }
 
   private baseUrl: string = 'https://gateway.marvel.com:443/v1/public/';
   private token: string = 'ts=1650715932&apikey=39b79c3e2d8f60abcd03f5d6046a7dcf&hash=09170cf850ac95d9120904a5e7b2b146'
@@ -19,7 +22,6 @@ export class AppService {
   getCharacters(limit?: number, offset?: number): Observable<any> {
     let endpoint: string = `characters?limit=${limit}&offset=${offset}&`
     let requestUrl: string = this.baseUrl + endpoint + this.token;
-    this.category = 'characters'
 
     return this.http.get<any>(requestUrl)
   }
@@ -27,7 +29,6 @@ export class AppService {
   getComics(limit?: number, offset?: number): Observable<any> {
     let endpoint: string = `comics?limit=${limit}&offset=${offset}&`
     let requestUrl: string = this.baseUrl + endpoint + this.token;
-    this.category = 'comics'
 
     return this.http.get<any>(requestUrl)
   }
@@ -35,7 +36,6 @@ export class AppService {
   getEvents(limit?: number, offset?: number): Observable<any> {
     let endpoint: string = `events?limit=${limit}&offset=${offset}&`
     let requestUrl: string = this.baseUrl + endpoint + this.token;
-    this.category = 'events'
 
     return this.http.get<any>(requestUrl)
   }

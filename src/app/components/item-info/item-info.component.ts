@@ -11,25 +11,50 @@ export class ItemInfoComponent implements OnInit {
 
 
   items: any[] = []
+  url = this.router.url
   constructor(private route: ActivatedRoute, private appService: AppService, private router: Router) { }
 
   ngOnInit(): void {
     const id = this.route.snapshot.params['id']
 
-    switch (this.appService.category) {
-      case 'characters':
+    // console.log(this.url);
+
+    // if (this.url === `/character/${id}`) {
+    //   this.getCharacterById(id)
+    // }
+
+
+
+    switch (this.url) {
+      case `/character/${id}`:
         this.getCharacterById(id)
         break;
-      case 'comics':
+      case `/comic/${id}`:
         this.getComicById(id)
         break;
-      case 'events':
+      case `/event/${id}`:
         this.getEventById(id)
         break;
 
       default:
         break;
     }
+
+
+    // switch (this.appService.currentURL) {
+    //   case `/characters${id}`:
+    //     this.getCharacterById(id)
+    //     break;
+    //   case `/comics${id}`:
+    //     this.getComicById(id)
+    //     break;
+    //   case `/events${id}`:
+    //     this.getEventById(id)
+    //     break;
+
+    //   default:
+    //     break;
+    // }
 
     // this.getCharacterById(id)
     // this.getComicById(id)

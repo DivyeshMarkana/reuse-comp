@@ -12,7 +12,10 @@ import { ItemInfoComponent } from './components/item-info/item-info.component';
 import { FormsModule } from '@angular/forms';
 import { SearchPipe } from './pipes/search.pipe';
 import { EventsComponent } from './components/events/events.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CharacterCardComponent } from './components/characters/character-card/character-card.component';
+import { ComicCardComponent } from './components/comics/comic-card/comic-card.component';
+import { EventCardComponent } from './components/events/event-card/event-card.component'
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     ComicsComponent,
     ItemInfoComponent,
     SearchPipe,
-    EventsComponent
+    EventsComponent,
+    CharacterCardComponent,
+    ComicCardComponent,
+    EventCardComponent
   ],
   imports: [
     BrowserModule,

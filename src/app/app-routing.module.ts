@@ -18,9 +18,18 @@ const routes: Routes = [
   {
     path: 'events', component: EventsComponent
   },
+  // {
+  //   path: 'item/:id', component: ItemInfoComponent
+  // }
   {
-    path: 'item/:id', component: ItemInfoComponent
-  }
+    path: 'character/:id', component: ItemInfoComponent
+  },
+  {
+    path: 'comic/:id', component: ItemInfoComponent
+  },
+  {
+    path: 'event/:id', component: ItemInfoComponent
+  },
 ];
 
 @NgModule({
