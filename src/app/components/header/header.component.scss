@@ -1,0 +1,37 @@
+nav {
+    width           : 100vw;
+    background-color: #efefef;
+    padding         : .3rem 0;
+    display         : flex;
+    justify-content : space-around;
+    align-items     : center;
+
+    ul {
+        width          : 25%;
+        display        : flex;
+        align-items    : center;
+        justify-content: space-between;
+        list-style     : none;
+
+        li {
+            a {
+                font-weight    : 700;
+                cursor         : pointer;
+                text-decoration: none;
+            }
+        }
+    }
+
+    .searchbox {
+
+        input {
+            padding      : .3rem 1rem;
+            border-radius: 100vmax;
+            border       : none;
+
+            &:focus {
+                outline: 2px solid #7f7fdc;
+            }
+        }
+    }
+}

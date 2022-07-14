@@ -1,0 +1,15 @@
+<!-- <div class="wrapper">
+    <div class="grid">
+        <div class="grid__item" *ngFor="let character of characters">
+            <div class="image">
+                <img src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}" alt="">
+            </div>
+            <div class="name">
+                <p>{{character.name}}</p>
+            </div>
+        </div>
+
+    </div>
+</div> -->
+
+<app-card-layout [items]="characters"></app-card-layout>
