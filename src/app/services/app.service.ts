@@ -9,10 +9,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class AppService {
 
   search = new BehaviorSubject('')
-  // category = 'characters' || 'comics' || 'events'
-  category: string
-  currentURL: any
-
+  activeRoute = new BehaviorSubject<string>('')
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -22,6 +19,8 @@ export class AppService {
   getCharacters(limit?: number, offset?: number): Observable<any> {
     let endpoint: string = `characters?limit=${limit}&offset=${offset}&`
     let requestUrl: string = this.baseUrl + endpoint + this.token;
+
+
 
     return this.http.get<any>(requestUrl)
   }

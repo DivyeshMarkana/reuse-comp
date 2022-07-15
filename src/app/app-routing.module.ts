@@ -3,11 +3,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { CharactersComponent } from './components/characters/characters.component';
 import { ComicsComponent } from './components/comics/comics.component';
 import { EventsComponent } from './components/events/events.component';
+import { HomeComponent } from './components/home/home.component';
 import { ItemInfoComponent } from './components/item-info/item-info.component';
 
 const routes: Routes = [
   {
-    path: '', redirectTo: 'characters', pathMatch: 'full'
+    path: '', redirectTo: 'home', pathMatch: 'full'
+  },
+  {
+    path: 'home', component: HomeComponent
   },
   {
     path: 'characters', component: CharactersComponent
@@ -22,13 +26,13 @@ const routes: Routes = [
   //   path: 'item/:id', component: ItemInfoComponent
   // }
   {
-    path: 'character/:id', component: ItemInfoComponent
+    path: 'characters/:id', component: ItemInfoComponent
   },
   {
-    path: 'comic/:id', component: ItemInfoComponent
+    path: 'comics/:id', component: ItemInfoComponent
   },
   {
-    path: 'event/:id', component: ItemInfoComponent
+    path: 'events/:id', component: ItemInfoComponent
   },
 ];
 

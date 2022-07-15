@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AppService } from 'src/app/services/app.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { AppService } from 'src/app/services/app.service';
 })
 export class EventsComponent implements OnInit {
 
-  constructor(private service: AppService) { }
+  constructor(private service: AppService, private router: Router) { }
 
   events: any[] = []
 
@@ -17,9 +18,15 @@ export class EventsComponent implements OnInit {
   }
 
   getEvents() {
+    // console.log(this.router.url);
+    this.service.activeRoute.next(this.router.url)
     this.service.getEvents(10, 0).subscribe((response) => {
       this.events = response.data.results
     })
+  }
+
+  route(event: any) {
+    this.router.navigate(['/events', event])
   }
 
 }

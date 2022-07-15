@@ -26,13 +26,13 @@ export class ItemInfoComponent implements OnInit {
 
 
     switch (this.url) {
-      case `/character/${id}`:
+      case `/characters/${id}`:
         this.getCharacterById(id)
         break;
-      case `/comic/${id}`:
+      case `/comics/${id}`:
         this.getComicById(id)
         break;
-      case `/event/${id}`:
+      case `/events/${id}`:
         this.getEventById(id)
         break;
 

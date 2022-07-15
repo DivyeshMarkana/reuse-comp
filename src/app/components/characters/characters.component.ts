@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AppService } from 'src/app/services/app.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { AppService } from 'src/app/services/app.service';
 })
 export class CharactersComponent implements OnInit {
 
-  constructor(private appService: AppService) { }
+  constructor(private appService: AppService, private router: Router) { }
 
   characters: any[] = []
 
@@ -17,9 +18,16 @@ export class CharactersComponent implements OnInit {
   }
 
   getCharacters() {
+    // console.log(this.router.url);
+    this.appService.activeRoute.next(this.router.url)
+
     this.appService.getCharacters(10, 0).subscribe((response) => {
       this.characters = response.data.results
     })
+  }
+
+  route(event: any) {
+    this.router.navigate(['/characters', event])
   }
 
 }
